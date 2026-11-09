@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shanmugam Narayanan | Product Manager, Data Platforms & Reliability</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&family=Schibsted+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F2F4F1; --panel:#FFFFFF; --ink:#18262E; --muted:#56656C; --line:#C9D1CF; --line-soft:#E1E6E4;
+  --signal:#0E7A74; --signal-soft:#D5E9E6; --amber:#A86F14; --amber-soft:#F3E6CF; --fail:#B5433A; --fail-soft:#F3DAD7;
+  --serif:"Newsreader", Georgia, serif; --sans:"Schibsted Grotesk", system-ui, sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:var(--signal)}
+:focus-visible{outline:2px solid var(--signal);outline-offset:3px;border-radius:2px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 28px}
+h1,h2,h3{font-weight:600;letter-spacing:-.01em;margin:0}
+h2{font-family:var(--serif);font-weight:500;font-size:clamp(30px,4vw,44px);line-height:1.1;letter-spacing:-.015em}
+h3{font-size:20px}
+p{margin:0}
+.muted{color:var(--muted)}
+.small{font-size:14px}
+
+/* nav */
+header.top{position:sticky;top:0;z-index:20;background:rgba(242,244,241,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line-soft)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;gap:16px}
+.mark{font-weight:700;text-decoration:none;color:var(--ink);font-size:16px;display:flex;align-items:center;gap:10px}
+.mark svg{flex:none}
+nav.links{display:flex;gap:22px;font-size:15px}
+nav.links a{color:var(--muted);text-decoration:none}
+nav.links a:hover{color:var(--ink)}
+nav.links a.navres{color:var(--ink);font-weight:600;border:1px solid var(--line);border-radius:999px;padding:2px 12px;margin:-3px 0}
+@media (max-width:720px){nav.links{gap:14px;font-size:14px}nav.links .hide-sm{display:none}}
+
+/* hero */
+.hero{padding:64px 0 28px}
+.hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(36px,5.6vw,68px);line-height:1.04;letter-spacing:-.02em;max-width:17ch}
+.hero .lede{margin-top:20px;font-size:19px;max-width:58ch;color:var(--muted)}
+.hero .who{margin-top:26px;display:flex;flex-wrap:wrap;gap:10px 26px;font-size:15px}
+.hero .who b{font-weight:600}
+.hero-links{margin-top:22px;display:flex;gap:10px;flex-wrap:wrap}
+.hero-links a{text-decoration:none}
+.flow-card{margin-top:40px;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px 18px 8px}
+.flow-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;padding:0 4px 6px}
+.flow-head p{font-size:15px;color:var(--muted)}
+#heroSvg{width:100%;height:auto;display:block}
+.gate{cursor:pointer}
+.gate rect{transition:fill .2s, stroke .2s}
+.gate:hover rect,.gate.on rect{fill:var(--signal-soft);stroke:var(--signal)}
+.stage-note{min-height:56px;padding:10px 6px 14px;font-size:16px;border-top:1px dashed var(--line);margin-top:4px;display:flex;gap:14px;align-items:flex-start}
+.stage-note b{color:var(--signal);white-space:nowrap}
+.btn{font:inherit;font-size:14px;font-weight:600;border:1px solid var(--ink);background:var(--ink);color:#fff;padding:7px 14px;border-radius:999px;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn.ghost:hover{border-color:var(--ink)}
+.btn[aria-pressed="true"]{background:var(--signal);border-color:var(--signal);color:#fff}
+
+section.block{padding:84px 0 20px;scroll-margin-top:40px}
+.sec-intro{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;margin-bottom:34px}
+.sec-intro p{font-size:18px;color:var(--muted);max-width:52ch}
+@media (max-width:820px){.sec-intro{grid-template-columns:1fr;gap:14px}}
+
+/* case tabs */
+.tabs{display:flex;gap:6px;flex-wrap:wrap;border-bottom:1px solid var(--line);margin-bottom:0}
+.tab{font:inherit;font-size:15px;font-weight:500;background:none;border:0;border-bottom:3px solid transparent;padding:12px 14px 10px;cursor:pointer;color:var(--muted);display:flex;gap:8px;align-items:baseline}
+.tab .n{font-size:13px;color:var(--line)}
+.tab[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--signal)}
+.tab[aria-selected="true"] .n{color:var(--signal)}
+.case{display:none;padding-top:34px}
+.case.on{display:block}
+.case-title{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:start}
+.case-title h3{font-family:var(--serif);font-weight:500;font-size:clamp(26px,3vw,34px);line-height:1.15;letter-spacing:-.01em}
+.case-title .one{font-size:17px;color:var(--muted);margin-top:12px;max-width:52ch}
+.caps{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+.chip{font-size:13px;padding:4px 10px;border-radius:999px;background:var(--panel);border:1px solid var(--line-soft);color:var(--muted)}
+@media (max-width:820px){.case-title{grid-template-columns:1fr;gap:16px}}
+
+/* PAR strip */
+.par{display:grid;grid-template-columns:1fr 28px 1fr 28px 1fr;align-items:stretch;margin:30px 0 26px}
+.par .cell{background:var(--panel);border:1px solid var(--line);padding:16px 18px;border-radius:10px}
+.par .cell h4{margin:0 0 6px;font-size:14px;font-weight:600;color:var(--signal)}
+.par .cell.p h4{color:var(--fail)}
+.par .cell.r h4{color:var(--ink)}
+.par .cell p{font-size:15.5px;line-height:1.45}
+.par .arr{display:flex;align-items:center;justify-content:center;color:var(--line)}
+@media (max-width:820px){.par{grid-template-columns:1fr}.par .arr{height:24px;transform:rotate(90deg)}}
+
+.diagram{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:22px;margin-top:18px}
+.diagram-head{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:12px}
+.diagram-head h4{margin:0;font-size:17px;font-weight:600}
+.diagram-head .hint{font-size:14px;color:var(--muted)}
+.illus{font-size:12.5px;color:var(--amber);background:var(--amber-soft);padding:3px 9px;border-radius:999px}
+.two{display:grid;grid-template-columns:1.35fr 1fr;gap:22px;align-items:start}
+@media (max-width:860px){.two{grid-template-columns:1fr}}
+svg text{font-family:var(--sans)}
+.node{cursor:pointer}
+.node circle,.node rect{transition:fill .2s,stroke .2s}
+.node:hover circle,.node.on circle,.node:hover rect,.node.on rect{fill:var(--signal-soft);stroke:var(--signal)}
+.detail{border-left:3px solid var(--signal);padding:4px 0 4px 16px}
+.detail h5{margin:0 0 6px;font-size:17px;font-weight:600}
+.detail p{font-size:15.5px;color:var(--ink)}
+.detail .role{margin-top:10px;font-size:14px;color:var(--muted)}
+
+/* slider */
+input[type=range]{width:100%;accent-color:var(--signal)}
+.rangebox label{display:flex;justify-content:space-between;font-size:14px;color:var(--muted);margin-bottom:4px}
+.rangebox output{color:var(--ink);font-weight:600}
+
+/* prioritization */
+.weights{display:grid;grid-template-columns:1fr 1fr;gap:12px 22px}
+@media (max-width:560px){.weights{grid-template-columns:1fr}}
+.rank{position:relative}
+.rank .row{position:absolute;left:0;right:0;height:46px;transition:top .45s cubic-bezier(.3,.7,.2,1)}
+.rank .row .lbl{display:flex;justify-content:space-between;font-size:14.5px;margin-bottom:4px}
+.rank .row .lbl b{font-weight:600}
+.rank .bar{height:10px;border-radius:5px;background:var(--line-soft);overflow:hidden}
+.rank .bar i{display:block;height:100%;background:var(--signal);border-radius:5px;transition:width .45s}
+.rank .row:first-child .bar i{background:var(--ink)}
+
+/* stages */
+.stages{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:6px}
+.stage{position:relative;padding:14px 18px 14px 18px;border:1px solid var(--line);background:var(--paper)}
+.stage:first-child{border-radius:10px 0 0 10px;background:var(--signal-soft);border-color:var(--signal)}
+.stage:last-child{border-radius:0 10px 10px 0}
+.stage + .stage{border-left:0}
+.stage .k{font-size:13px;color:var(--muted)}
+.stage b{display:block;font-size:15.5px;margin:2px 0 4px}
+.stage p{font-size:14px;color:var(--muted)}
+@media (max-width:720px){.stages{grid-template-columns:1fr}.stage{border-radius:0!important;border-left:1px solid var(--line)!important}.stage + .stage{border-top:0}}
+
+/* quality mockup */
+.mock{border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.mock-bar{display:flex;gap:6px;flex-wrap:wrap;align-items:center;padding:10px 12px;background:var(--paper);border-bottom:1px solid var(--line)}
+.mock-bar .t{font-weight:600;font-size:14px;margin-right:8px}
+.seg{font:inherit;font-size:13px;padding:4px 10px;border-radius:6px;border:1px solid var(--line);background:#fff;cursor:pointer;color:var(--muted)}
+.seg[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.tiles{display:grid;grid-template-columns:repeat(6,1fr);border-bottom:1px solid var(--line)}
+.tile{padding:12px 12px 14px;border-right:1px solid var(--line-soft)}
+.tile:last-child{border-right:0}
+.tile .tl{font-size:12.5px;color:var(--muted);line-height:1.25;min-height:32px}
+.tile .tv{font-size:24px;font-weight:600;margin-top:4px;font-variant-numeric:tabular-nums}
+.tile .ts{font-size:12px;margin-top:2px;display:flex;align-items:center;gap:5px}
+.dot{width:8px;height:8px;border-radius:50%;display:inline-block}
+@media (max-width:820px){.tiles{grid-template-columns:repeat(3,1fr)}.tile:nth-child(3){border-right:0}.tile:nth-child(-n+3){border-bottom:1px solid var(--line-soft)}}
+.mock-body{display:grid;grid-template-columns:1.3fr 1fr;gap:0}
+.mock-body > div{padding:14px 16px}
+.mock-body > div + div{border-left:1px solid var(--line-soft)}
+@media (max-width:820px){.mock-body{grid-template-columns:1fr}.mock-body > div + div{border-left:0;border-top:1px solid var(--line-soft)}}
+.wl-row{display:grid;grid-template-columns:96px 1fr 52px;gap:10px;align-items:center;padding:5px 4px;border-radius:6px;cursor:pointer;font-size:14px;border:0;background:none;font-family:inherit;width:100%;text-align:left;color:var(--ink)}
+.wl-row:hover,.wl-row.on{background:var(--paper)}
+.wl-track{position:relative;height:12px;background:var(--line-soft);border-radius:3px}
+.wl-track i{position:absolute;left:0;top:0;bottom:0;border-radius:3px;transition:width .4s}
+.wl-track .tgt{position:absolute;top:-3px;bottom:-3px;width:2px;background:var(--ink)}
+.wl-row span:last-child{text-align:right;font-variant-numeric:tabular-nums}
+.focus-list{list-style:none;margin:8px 0 0;padding:0}
+.focus-list li{padding:8px 0;border-bottom:1px solid var(--line-soft);font-size:14.5px;display:flex;gap:10px}
+.focus-list li:last-child{border:0}
+
+/* tracker board */
+.board{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+@media (max-width:820px){.board{grid-template-columns:1fr}}
+.col{background:var(--paper);border-radius:10px;padding:10px}
+.col h5{margin:2px 4px 8px;font-size:14px;font-weight:600;display:flex;align-items:center;gap:8px}
+.card{display:block;width:100%;text-align:left;font:inherit;background:#fff;border:1px solid var(--line-soft);border-radius:8px;padding:10px 12px;margin-bottom:8px;cursor:pointer;color:var(--ink)}
+.card:hover,.card.on{border-color:var(--signal)}
+.card b{display:block;font-size:14.5px;font-weight:600}
+.card span{font-size:13px;color:var(--muted)}
+.card .more{display:none;margin-top:8px;font-size:13.5px;color:var(--ink);border-top:1px dashed var(--line);padding-top:8px}
+.card.on .more{display:block}
+
+/* other work, principles */
+.list-rows{border-top:1px solid var(--line)}
+.lr{display:grid;grid-template-columns:280px 1fr;gap:30px;padding:18px 0;border-bottom:1px solid var(--line)}
+.lr h3{font-size:17px}
+.lr p{color:var(--muted);font-size:16px;max-width:62ch}
+@media (max-width:720px){.lr{grid-template-columns:1fr;gap:6px}}
+.princ{display:grid;grid-template-columns:repeat(5,1fr);gap:0;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--panel)}
+.pr{padding:20px 18px;border-right:1px solid var(--line-soft)}
+.pr:last-child{border-right:0}
+.pr svg{display:block;margin-bottom:14px}
+.pr h3{font-size:16.5px;line-height:1.25}
+.pr p{font-size:14.5px;color:var(--muted);margin-top:8px}
+@media (max-width:900px){.princ{grid-template-columns:1fr 1fr}.pr{border-bottom:1px solid var(--line-soft)}}
+@media (max-width:520px){.princ{grid-template-columns:1fr}}
+
+/* timeline */
+.timeline{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:10px}
+.tl-item{padding:0 28px 0 0;position:relative}
+.tl-item .bar{height:6px;border-radius:3px;background:var(--line);margin-bottom:18px}
+.tl-item.now .bar{background:var(--signal)}
+.tl-item h3{font-size:19px}
+.tl-item .org{color:var(--muted);font-size:15px;margin:2px 0 10px}
+.tl-item ul{margin:0;padding-left:18px;font-size:15.5px}
+.tl-item li{margin-bottom:4px}
+@media (max-width:720px){.timeline{grid-template-columns:1fr;gap:28px}}
+
+.career{display:grid;grid-template-columns:repeat(4,1fr);gap:0 22px}
+.cr .yr{font-size:14px;color:var(--muted);font-variant-numeric:tabular-nums}
+.cr .bar{height:6px;border-radius:3px;background:var(--line);margin:8px 0 16px}
+.cr.now .bar{background:var(--signal)}
+.cr.now .yr{color:var(--signal);font-weight:600}
+.cr h3{font-size:17.5px;line-height:1.25}
+.cr .org{color:var(--muted);font-size:14.5px;margin:4px 0 8px}
+.cr p:last-child{font-size:15px}
+@media (max-width:900px){.career{grid-template-columns:1fr 1fr;gap:30px 22px}}
+@media (max-width:520px){.career{grid-template-columns:1fr}}
+.creds{margin-top:36px;padding-top:20px;border-top:1px solid var(--line);display:grid;gap:8px;font-size:15.5px}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+.about-grid .big{font-family:var(--serif);font-size:24px;line-height:1.35}
+@media (max-width:820px){.career{display:grid;grid-template-columns:repeat(4,1fr);gap:0 22px}
+.cr .yr{font-size:14px;color:var(--muted);font-variant-numeric:tabular-nums}
+.cr .bar{height:6px;border-radius:3px;background:var(--line);margin:8px 0 16px}
+.cr.now .bar{background:var(--signal)}
+.cr.now .yr{color:var(--signal);font-weight:600}
+.cr h3{font-size:17.5px;line-height:1.25}
+.cr .org{color:var(--muted);font-size:14.5px;margin:4px 0 8px}
+.cr p:last-child{font-size:15px}
+@media (max-width:900px){.career{grid-template-columns:1fr 1fr;gap:30px 22px}}
+@media (max-width:520px){.career{grid-template-columns:1fr}}
+.creds{margin-top:36px;padding-top:20px;border-top:1px solid var(--line);display:grid;gap:8px;font-size:15.5px}
+.about-grid{grid-template-columns:1fr;gap:24px}}
+
+footer{margin-top:90px;background:var(--ink);color:#E6ECEA;padding:56px 0 40px}
+footer h2{color:#fff}
+footer .row{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:24px}
+footer a{color:#9FD6CF}
+.contact-line{font-size:18px;margin-top:16px;display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.copy{font:inherit;font-size:14px;background:transparent;border:1px solid #4B5D66;color:#E6ECEA;border-radius:999px;padding:5px 12px;cursor:pointer}
+.copy:hover{border-color:#9FD6CF}
+footer .fine{margin-top:40px;font-size:13px;color:#8EA0A7}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="mark" href="#top" aria-label="Back to top">
+      <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><circle cx="5" cy="13" r="3" fill="#B5433A"/><circle cx="13" cy="13" r="3" fill="#A86F14"/><circle cx="21" cy="13" r="3" fill="#0E7A74"/><path d="M8 13h2M16 13h2" stroke="#18262E" stroke-width="1.5"/></svg>
+      Shanmugam Narayanan
+    </a>
+    <nav class="links" aria-label="Sections">
+      <a href="#work">Work</a>
+      <a href="#ai" class="hide-sm">AI</a>
+      <a href="#approach" class="hide-sm">Approach</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+      <a href="https://drive.google.com/file/d/1XPS0iFSfbFuxf7-Il95IkeQ7tAJ_vo-v/view" class="navres">Resume</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <h1>I turn noisy platform telemetry into metrics teams trust enough to act on.</h1>
+    <p class="lede">Senior Technical Product Manager with 20+ years in data, the last five at Microsoft on Fabric: reliability metrics, telemetry strategy, quality reporting and platform dogfooding.</p>
+    <div class="who">
+      <span><b>Microsoft</b> <span class="muted">Fabric, 2021 to now</span></span>
+      <span><b>EY</b> <span class="muted">Financial reporting platform</span></span>
+      <span><b>Booz Allen</b> <span class="muted">CDC data strategy</span></span>
+      <span class="muted">Atlanta, Georgia</span>
+    </div>
+    <div class="hero-links"><a class="btn" href="https://drive.google.com/file/d/1XPS0iFSfbFuxf7-Il95IkeQ7tAJ_vo-v/view">View resume</a><a class="btn ghost" href="https://www.linkedin.com/in/shanmugam3">LinkedIn</a>
+    </div>
+
+    <div class="flow-card">
+      <div class="flow-head">
+        <p>How I work, in one picture. Select a stage to see what I do there.</p>
+        <button class="btn ghost" id="pauseBtn" type="button" aria-pressed="false">Pause signals</button>
+      </div>
+      <svg id="heroSvg" viewBox="0 0 1040 250" role="img" aria-label="Diagram: raw telemetry signals pass through four stages: define, validate, measure and decide. Bad data is caught at validation and sent back to be fixed.">
+        <defs>
+          <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#9AA8AE"/></marker>
+        </defs>
+        <text x="20" y="34" font-size="14" fill="#56656C">Raw signals from many teams</text>
+        <line x1="20" y1="125" x2="1010" y2="125" stroke="#E1E6E4" stroke-width="2"/>
+        <g id="particles"></g>
+        <path d="M455 170 C455 220, 300 225, 250 225" fill="none" stroke="#B5433A" stroke-width="1.5" stroke-dasharray="4 4" marker-end="url(#ah)"/>
+        <text x="250" y="244" font-size="13" fill="#B5433A">Fix at the source, not in the report</text>
+        <g class="gate" data-i="0" tabindex="0" role="button" aria-label="Define stage"><rect x="202" y="85" width="136" height="80" rx="10" fill="#fff" stroke="#C9D1CF" stroke-width="1.5"/><text x="270" y="122" text-anchor="middle" font-size="16" font-weight="600" fill="#18262E">Define</text><text x="270" y="142" text-anchor="middle" font-size="12.5" fill="#56656C">what success means</text></g>
+        <g class="gate" data-i="1" tabindex="0" role="button" aria-label="Validate stage"><rect x="387" y="85" width="136" height="80" rx="10" fill="#fff" stroke="#C9D1CF" stroke-width="1.5"/><text x="455" y="122" text-anchor="middle" font-size="16" font-weight="600" fill="#18262E">Validate</text><text x="455" y="142" text-anchor="middle" font-size="12.5" fill="#56656C">is the data right?</text></g>
+        <g class="gate" data-i="2" tabindex="0" role="button" aria-label="Measure stage"><rect x="572" y="85" width="136" height="80" rx="10" fill="#fff" stroke="#C9D1CF" stroke-width="1.5"/><text x="640" y="122" text-anchor="middle" font-size="16" font-weight="600" fill="#18262E">Measure</text><text x="640" y="142" text-anchor="middle" font-size="12.5" fill="#56656C">one shared metric</text></g>
+        <g class="gate" data-i="3" tabindex="0" role="button" aria-label="Decide stage"><rect x="757" y="85" width="136" height="80" rx="10" fill="#fff" stroke="#C9D1CF" stroke-width="1.5"/><text x="825" y="122" text-anchor="middle" font-size="16" font-weight="600" fill="#18262E">Decide</text><text x="825" y="142" text-anchor="middle" font-size="12.5" fill="#56656C">who acts, on what</text></g>
+        <g transform="translate(925 92)">
+          <rect width="96" height="66" rx="8" fill="#18262E"/>
+          <text x="48" y="28" text-anchor="middle" font-size="13" fill="#fff" font-weight="600">Prioritized</text>
+          <text x="48" y="46" text-anchor="middle" font-size="13" fill="#fff" font-weight="600">action</text>
+        </g>
+      </svg>
+      <div class="stage-note" id="stageNote" aria-live="polite"><b>Define</b><span>Agree on scenarios, success criteria and owners before a single chart is built. Most metric arguments are definition arguments.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- WORK -->
+<section class="block" id="work">
+  <div class="wrap">
+    <div class="sec-intro">
+      <h2>Five problems, shown as diagrams</h2>
+      <p>Each case follows Problem, Action, Result, then lets you explore the system I worked in. Shared work is described as shared: I drove, partnered or enabled.</p>
+    </div>
+
+    <div class="tabs" role="tablist" aria-label="Case studies">
+      <button class="tab" role="tab" id="t-wsr" aria-controls="case-wsr" aria-selected="true" data-case="wsr"><span class="n">1</span>Reliability metrics</button>
+      <button class="tab" role="tab" id="t-prio" aria-controls="case-prio" aria-selected="false" data-case="prio"><span class="n">2</span>Roadmap prioritization</button>
+      <button class="tab" role="tab" id="t-quality" aria-controls="case-quality" aria-selected="false" data-case="quality"><span class="n">3</span>Quality dashboard</button>
+      <button class="tab" role="tab" id="t-bof" aria-controls="case-bof" aria-selected="false" data-case="bof"><span class="n">4</span>Build on Fabric</button>
+      <button class="tab" role="tab" id="t-res" aria-controls="case-res" aria-selected="false" data-case="res"><span class="n">5</span>Data residency</button>
+    </div>
+
+    <!-- CASE 1 WSR -->
+    <article class="case on" id="case-wsr" role="tabpanel" aria-labelledby="t-wsr">
+      <div class="case-title">
+        <div>
+          <h3>Making reliability measurable and actionable</h3>
+          <p class="one">I owned the Workload Success Rate (WSR) metrics program for Microsoft Fabric: one way to measure reliability across many workload teams.</p>
+        </div>
+        <div class="caps"><span class="chip">Platform PM</span><span class="chip">KPI strategy</span><span class="chip">Metric governance</span><span class="chip">Dependency management</span><span class="chip">Operational readiness</span></div>
+      </div>
+      <div class="par">
+        <div class="cell p"><h4>Problem</h4><p>Each team onboarded differently and defined scenarios differently. Nobody could tell a real product failure from an instrumentation gap.</p></div>
+        <div class="arr" aria-hidden="true"><svg width="20" height="14"><path d="M0 7h16M11 2l5 5-5 5" stroke="currentColor" stroke-width="2" fill="none"/></svg></div>
+        <div class="cell a"><h4>Action</h4><p>Built the operating model: phased onboarding, shared definitions, data-quality triage, review cadence and a migration roadmap to Fabric.</p></div>
+        <div class="arr" aria-hidden="true"><svg width="20" height="14"><path d="M0 7h16M11 2l5 5-5 5" stroke="currentColor" stroke-width="2" fill="none"/></svg></div>
+        <div class="cell r"><h4>Result</h4><p>A production tenant-level investigation dashboard, wider scenario coverage, and one source of truth shared with the Quality Dashboard.</p></div>
+      </div>
+
+      <div class="diagram">
+        <div class="diagram-head"><h4>The reliability operating loop</h4><span class="hint">Select any step</span></div>
+        <div class="two">
+          <svg id="loopSvg" viewBox="-70 0 660 400" role="group" aria-label="Seven-step loop from workload onboarding to reliability review and back"></svg>
+          <div class="detail" id="loopDetail" aria-live="polite"></div>
+        </div>
+      </div>
+
+      <div class="diagram">
+        <div class="diagram-head"><h4>Trade-off: fresh or complete?</h4><span class="illus">Illustrative curve, not real data</span></div>
+        <div class="two">
+          <svg id="freshSvg" viewBox="0 0 520 240" role="img" aria-label="Chart: the longer reporting waits, the more late-arriving events are included, but the staler the metric."></svg>
+          <div>
+            <div class="rangebox">
+              <label for="wait">Wait before publishing the metric <output id="waitOut">30 min</output></label>
+              <input type="range" id="wait" min="5" max="180" step="5" value="30">
+            </div>
+            <p style="margin-top:14px;font-size:15.5px" id="freshText"></p>
+            <p class="small muted" style="margin-top:12px">Near-real-time reporting has to decide how to treat events that arrive late. I made that choice explicit with stakeholders instead of leaving it buried in pipeline settings.</p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- CASE 2 PRIORITIZATION -->
+    <article class="case" id="case-prio" role="tabpanel" aria-labelledby="t-prio">
+      <div class="case-title">
+        <div>
+          <h3>Turning competing requests into a defensible roadmap</h3>
+          <p class="one">I created a structured way to plan each telemetry semester, so priority came from impact, cost and dependencies instead of whoever escalated loudest.</p>
+        </div>
+        <div class="caps"><span class="chip">Product strategy</span><span class="chip">Portfolio prioritization</span><span class="chip">Roadmap sequencing</span><span class="chip">Negotiation</span><span class="chip">Scope management</span></div>
+      </div>
+      <div class="par">
+        <div class="cell p"><h4>Problem</h4><p>Onboarding, reliability gaps, reporting asks, compliance and modernization all competed for one team. Prioritization was reactive.</p></div>
+        <div class="arr" aria-hidden="true"><svg width="20" height="14"><path d="M0 7h16M11 2l5 5-5 5" stroke="currentColor" stroke-width="2" fill="none"/></svg></div>
+        <div class="cell a"><h4>Action</h4><p>Tied each request to six lenses, broke broad asks into scoped features, and negotiated staged delivery where a full build didn't fit.</p></div>
+        <div class="arr" aria-hidden="true"><svg width="20" height="14"><path d="M0 7h16M11 2l5 5-5 5" stroke="currentColor" stroke-width="2" fill="none"/></svg></div>
+        <div class="cell r"><h4>Result</h4><p>Prioritization became a shared decision process, with interim unblockers balanced against long-term platform work.</p></div>
+      </div>
+
+      <div class="diagram">
+        <div class="diagram-head"><h4>Try it: change what matters, watch the roadmap move</h4><span class="illus">Sample requests and scores, for illustration</span></div>
+        <div class="two">
+          <div>
+            <div class="rank" id="rank" aria-live="polite"></div>
+          </div>
+          <div class="weights" id="weights"></div>
+        </div>
+      </div>
+
+      <div class="diagram">
+        <div class="diagram-head"><h4>Staged delivery instead of all-or-nothing</h4><span class="hint">Example: aggregated reliability events</span></div>
+        <div class="stages">
+          <div class="stage"><span class="k">Stage 1, prioritized first</span><b>Upstream events available</b><p>Unblocks an interim reporting path right away.</p></div>
+          <div class="stage"><span class="k">Stage 2</span><b>Downstream processing</b><p>Sequenced separately, so stage 1 isn't held hostage.</p></div>
+          <div class="stage"><span class="k">Stage 3</span><b>Metric curation</b><p>Governed metric replaces the interim path.</p></div>
+        </div>
+      </div>
+    </article>
+
+    <!-- CASE 3 QUALITY -->
+    <article class="case" id="case-quality" role="tabpanel" aria-labelledby="t-quality">
+      <div class="case-title">
+        <div>
+          <h3>One view of product quality</h3>
+          <p class="one">I drove a cross-team effort to bring Fabric's quality signals into one decision-making view, connecting leadership visibility with workload-level accountability.</p>
+        </div>
+        <div class="caps"><span class="chip">Analytics PM</span><span class="chip">Executive reporting</span><span class="chip">KPI design</span><span class="chip">Data reconciliation</span></div>
+      </div>
+      <div class="par">
+        <div class="cell p"><h4>Problem</h4><p>Outages, incidents, escalations, reliability, performance and availability each lived in a separate report with its own definitions.</p></div>
+        <div class="arr" aria-hidden="true"><svg width="20" height="14"><path d="M0 7h16M11 2l5 5-5 5" stroke="currentColor" stroke-width="2" fill="none"/></svg></div>
+        <div class="cell a"><h4>Action</h4><p>Turned the need into a product and data backlog, aligned metrics with WSR definitions, and coordinated discrepancy validation.</p></div>
+        <div class="arr" aria-hidden="true"><svg width="20" height="14"><path d="M0 7h16M11 2l5 5-5 5" stroke="currentColor" stroke-width="2" fill="none"/></svg></div>
+        <div class="cell r"><h4>Result</h4><p>An all-up overview that drills into workload-specific investigation, with targets and history side by side.</p></div>
+      </div>
+
+      <div class="diagram">
+        <div class="diagram-head"><h4>From "how are we doing?" to "where should we focus?"</h4><span class="illus">Sanitized mockup with made-up numbers</span></div>
+        <div class="mock">
+          <div class="mock-bar" id="wlBar"><span class="t">Quality overview</span></div>
+          <div class="tiles" id="tiles"></div>
+          <div class="mock-body">
+            <div>
+              <p class="small muted" style="margin-bottom:8px">Reliability attainment by workload. The line marks the target. Select a row to drill in.</p>
+              <div id="wlRows"></div>
+            </div>
+            <div>
+              <p class="small" style="font-weight:600" id="focusTitle">Where to focus</p>
+              <ul class="focus-list" id="focusList"></ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- CASE 4 BUILD ON FABRIC -->
+    <article class="case" id="case-bof" role="tabpanel" aria-labelledby="t-bof">
+      <div class="case-title">
+        <div>
+          <h3>Turning internal dogfooding into product improvements</h3>
+          <p class="one">For Build on Fabric, our team moved real telemetry workloads onto the platform. I drove the feedback and dependency workstream that turned friction into requirements.</p>
+        </div>
+        <div class="caps"><span class="chip">Customer-zero strategy</span><span class="chip">Technical discovery</span><span class="chip">Feedback loops</span><span class="chip">Escalation</span><span class="chip">Executive communication</span></div>
+      </div>
+      <div class="par">
+        <div class="cell p"><h4>Problem</h4><p>Real enterprise load exposed gaps across ingestion, migration, scale, identity, scheduling and monitoring, scattered across email threads.</p></div>
+        <div class="arr" aria-hidden="true"><svg width="20" height="14"><path d="M0 7h16M11 2l5 5-5 5" stroke="currentColor" stroke-width="2" fill="none"/></svg></div>
+        <div class="cell a"><h4>Action</h4><p>Set up one product-gap tracker, recurring reviews and owners, and executive updates that separated proven progress from open risk.</p></div>
+        <div class="arr" aria-hidden="true"><svg width="20" height="14"><path d="M0 7h16M11 2l5 5-5 5" stroke="currentColor" stroke-width="2" fill="none"/></svg></div>
+        <div class="cell r"><h4>Result</h4><p>A repeatable discovery and validation mechanism that moved several platform capabilities forward.</p></div>
+      </div>
+
+      <div class="diagram">
+        <div class="diagram-head"><h4>The closed loop</h4><button class="btn ghost" id="loopPlay" type="button">Walk through the loop</button></div>
+        <svg id="bofSvg" viewBox="0 0 1000 170" role="img" aria-label="Six-step loop: exercise real scenarios, capture friction, define the requirement, engage the owning team, validate progress, communicate remaining risk, then back to the start."></svg>
+        <p id="bofNote" style="margin-top:6px;font-size:15.5px;min-height:24px" aria-live="polite"></p>
+      </div>
+
+      <div class="diagram">
+        <div class="diagram-head"><h4>What the tracker made visible</h4><span class="hint">Select a card</span></div>
+        <div class="board" id="board"></div>
+        <p class="small muted" style="margin-top:10px">This shows product movement. It is not a claim that the full migration or production validation is complete.</p>
+      </div>
+    </article>
+
+    <!-- CASE 5 RESIDENCY -->
+    <article class="case" id="case-res" role="tabpanel" aria-labelledby="t-res">
+      <div class="case-title">
+        <div>
+          <h3>Keeping metrics trustworthy through data-residency changes</h3>
+          <p class="one">When EU data-boundary rules changed where telemetry could be processed, I led metric alignment so usage numbers stayed correct and consumers knew what had changed.</p>
+        </div>
+        <div class="caps"><span class="chip">Privacy-aware PM</span><span class="chip">Data governance</span><span class="chip">Metric continuity</span><span class="chip">Change management</span></div>
+      </div>
+      <div class="par">
+        <div class="cell p"><h4>Problem</h4><p>Regional processing broke assumptions in existing metric logic: aggregation, identifiers and comparisons with history.</p></div>
+        <div class="arr" aria-hidden="true"><svg width="20" height="14"><path d="M0 7h16M11 2l5 5-5 5" stroke="currentColor" stroke-width="2" fill="none"/></svg></div>
+        <div class="cell a"><h4>Action</h4><p>Partnered on new Power BI Desktop usage requirements, aligned revised anonymous-user logic, and wrote the stakeholder communications.</p></div>
+        <div class="arr" aria-hidden="true"><svg width="20" height="14"><path d="M0 7h16M11 2l5 5-5 5" stroke="currentColor" stroke-width="2" fill="none"/></svg></div>
+        <div class="cell r"><h4>Result</h4><p>Teams made informed decisions about history, cost and identifiers instead of finding broken trends later.</p></div>
+      </div>
+
+      <div class="diagram">
+        <div class="diagram-head"><h4>What changed in the data flow</h4>
+          <div style="display:flex;gap:6px"><button class="btn ghost" type="button" id="resBefore" aria-pressed="true">Before</button><button class="btn ghost" type="button" id="resAfter" aria-pressed="false">After</button></div>
+        </div>
+        <svg id="resSvg" viewBox="0 0 1000 260" role="img" aria-label="Before: all regions feed one global aggregation. After: EU data is processed inside the EU boundary, and only permitted aggregates are combined."></svg>
+        <p id="resNote" style="margin-top:8px;font-size:15.5px" aria-live="polite"></p>
+      </div>
+
+      <div class="diagram">
+        <div class="diagram-head"><h4>The decision I put on the table</h4><span class="hint">Making the trade-off explicit</span></div>
+        <svg viewBox="0 0 1000 220" role="img" aria-label="Decision tree: should historical data be corrected? Reprocess history: comparable trends, high cost. Go forward only: low cost, a break in the series that must be annotated.">
+          <rect x="20" y="80" width="220" height="64" rx="10" fill="#18262E"/>
+          <text x="130" y="108" text-anchor="middle" font-size="15" fill="#fff" font-weight="600">Logic changed.</text>
+          <text x="130" y="128" text-anchor="middle" font-size="15" fill="#fff" font-weight="600">Correct history?</text>
+          <path d="M240 100 C300 100 300 50 360 50" stroke="#9AA8AE" stroke-width="2" fill="none"/>
+          <path d="M240 124 C300 124 300 174 360 174" stroke="#9AA8AE" stroke-width="2" fill="none"/>
+          <rect x="360" y="20" width="270" height="62" rx="10" fill="#fff" stroke="#C9D1CF" stroke-width="1.5"/>
+          <text x="378" y="46" font-size="15" font-weight="600" fill="#18262E">Reprocess history</text>
+          <text x="378" y="66" font-size="13.5" fill="#56656C">Trends stay comparable</text>
+          <rect x="360" y="142" width="270" height="62" rx="10" fill="#fff" stroke="#C9D1CF" stroke-width="1.5"/>
+          <text x="378" y="168" font-size="15" font-weight="600" fill="#18262E">Go forward only</text>
+          <text x="378" y="188" font-size="13.5" fill="#56656C">Series breaks at the change date</text>
+          <path d="M630 51 H700" stroke="#9AA8AE" stroke-width="2"/><path d="M630 173 H700" stroke="#9AA8AE" stroke-width="2"/>
+          <rect x="700" y="28" width="280" height="46" rx="23" fill="#F3DAD7"/><text x="840" y="56" text-anchor="middle" font-size="14" fill="#B5433A" font-weight="600">Cost: high compute and effort</text>
+          <rect x="700" y="150" width="280" height="46" rx="23" fill="#F3E6CF"/><text x="840" y="178" text-anchor="middle" font-size="14" fill="#A86F14" font-weight="600">Cost: annotate and explain the break</text>
+        </svg>
+        <p class="small muted" style="margin-top:6px">My role was requirements, metric correctness and consumer readiness, not legal certification of compliance.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- AI -->
+<section class="block" id="ai">
+  <div class="wrap">
+    <div class="sec-intro">
+      <h2>How I use AI in product work</h2>
+      <p>AI speeds up the work. It doesn't replace product judgment, data validation or engineering ownership.</p>
+    </div>
+    <div class="diagram" style="margin-top:0">
+      <div class="diagram-head"><h4>A real example: an AI-proposed stored-procedure fix</h4>
+        <div style="display:flex;gap:6px"><button class="btn ghost" type="button" id="aiPass" aria-pressed="true">Test passes</button><button class="btn ghost" type="button" id="aiFail" aria-pressed="false">Test fails</button></div>
+      </div>
+      <svg id="aiSvg" viewBox="0 0 1000 200" role="img" aria-label="Flow: AI proposes a candidate fix, an engineer reviews it, it is tested, validated against data, then shipped. A failed test sends it back to the AI step."></svg>
+      <p class="small muted" style="margin-top:4px">In a reliability investigation, a colleague and I used AI to find a candidate fix. We treated it as a candidate that had to pass review and testing, not as a production-ready answer.</p>
+    </div>
+    <div class="list-rows" style="margin-top:28px">
+      <div class="lr"><h3>Daily tools</h3><p>GitHub Copilot and Claude Code for SQL analysis, pipeline work and automation.</p></div>
+      <div class="lr"><h3>Exploring</h3><p>AI-assisted query generation so workload teams can validate their own metrics.</p></div>
+      <div class="lr"><h3>Platform planning</h3><p>Defining AI-ready data and metadata requirements, and LLM-assisted discovery of platform knowledge.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- MORE WORK -->
+<section class="block" id="more">
+  <div class="wrap">
+    <div class="sec-intro">
+      <h2>More I've owned</h2>
+      <p>Smaller workstreams that use the same muscles.</p>
+    </div>
+    <div class="list-rows">
+      <div class="lr"><h3>Workspace monitoring onboarding</h3><p>Launched self-serve onboarding that raised platform adoption 30% and cut support requests by more than half, replacing ad hoc asks with repeatable patterns.</p></div>
+      <div class="lr"><h3>Telemetry schema strategy</h3><p>Drove a common event schema with required fields and naming rules across workloads, so new KPIs come from consistent events instead of one-off logic per team.</p></div>
+      <div class="lr"><h3>Usage and retention analytics</h3><p>Partnered with engineering on governed measurement of product usage, retention and semantic-model consumption.</p></div>
+      <div class="lr"><h3>Fraud-aware metric integrity</h3><p>Aligned fraud-exclusion logic with downstream usage and capacity reporting.</p></div>
+      <div class="lr"><h3>Data curation backlog</h3><p>Owned prioritization and delivery tracking for a geographically distributed engineering and partner team.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- APPROACH -->
+<section class="block" id="approach">
+  <div class="wrap">
+    <div class="sec-intro">
+      <h2>How I lead product work</h2>
+      <p>Five habits that show up in every case above.</p>
+    </div>
+    <div class="princ">
+      <div class="pr">
+        <svg width="44" height="30" aria-hidden="true"><rect x="1" y="6" width="18" height="18" rx="3" fill="none" stroke="#C9D1CF" stroke-width="2"/><path d="M22 15h10" stroke="#9AA8AE" stroke-width="2"/><circle cx="38" cy="15" r="5" fill="#0E7A74"/></svg>
+        <h3>Start with the decision, not the dashboard</h3><p>What does someone need to decide? Then the metric.</p></div>
+      <div class="pr">
+        <svg width="44" height="30" aria-hidden="true"><path d="M4 22L22 8L40 22" stroke="#9AA8AE" stroke-width="2" fill="none"/><circle cx="4" cy="22" r="4" fill="#A86F14"/><circle cx="40" cy="22" r="4" fill="#0E7A74"/></svg>
+        <h3>Make trade-offs explicit</h3><p>Cost, impact, dependencies and readiness in the open.</p></div>
+      <div class="pr">
+        <svg width="44" height="30" aria-hidden="true"><circle cx="10" cy="15" r="5" fill="#B5433A"/><path d="M16 15h6" stroke="#9AA8AE" stroke-width="2"/><rect x="23" y="7" width="16" height="16" rx="3" fill="#0E7A74"/></svg>
+        <h3>Build trust into measurement</h3><p>Definitions, lineage and reconciliation are requirements.</p></div>
+      <div class="pr">
+        <svg width="44" height="30" aria-hidden="true"><rect x="2" y="18" width="7" height="10" fill="#C9D1CF"/><rect x="13" y="12" width="7" height="16" fill="#9AA8AE"/><rect x="24" y="4" width="7" height="24" fill="#0E7A74"/></svg>
+        <h3>Influence through evidence</h3><p>Friction becomes a scoped requirement with an owner.</p></div>
+      <div class="pr">
+        <svg width="44" height="30" aria-hidden="true"><circle cx="22" cy="15" r="11" fill="none" stroke="#0E7A74" stroke-width="2" stroke-dasharray="5 4"/><circle cx="33" cy="15" r="3" fill="#0E7A74"/></svg>
+        <h3>Create durable operating models</h3><p>Owners, docs and review rhythms that outlast a milestone.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="block" id="about">
+  <div class="wrap">
+    <div class="sec-intro">
+      <h2>About</h2>
+      <p>Fifteen years building production data systems before product management. I can go deep with engineers on schemas, pipelines and cost, then explain the trade-offs plainly to executives.</p>
+    </div>
+    <div class="career" role="list" aria-label="Career timeline">
+      <div class="cr" role="listitem"><div class="yr">2001 to 2016</div><div class="bar"></div><h3>Data architect, DBA and BI lead</h3><p class="org">Georgia-Pacific, Macy's, AutoTrader.com, The Home Depot, NAPA, Synovus, Fair Isaac, Best Buy</p><p>Ran business-critical, multi-terabyte systems in financial services and retail, leading teams of up to nine.</p></div>
+      <div class="cr" role="listitem"><div class="yr">2016 to 2020</div><div class="bar"></div><h3>Lead Data Architect</h3><p class="org">Booz Allen Hamilton, CDC client</p><p>Federal data warehouse and governance board, Azure migration proof of concept, ML matching of near-duplicate lab records.</p></div>
+      <div class="cr" role="listitem"><div class="yr">2020 to 2021</div><div class="bar"></div><h3>Associate Director, Data Product Manager</h3><p class="org">EY, financial reporting platform</p><p>Owned roadmap and releases for the enterprise financial reporting platform and the cubes behind executive Power BI reporting.</p></div>
+      <div class="cr now" role="listitem"><div class="yr">2021 to now</div><div class="bar"></div><h3>Senior Program Manager</h3><p class="org">Microsoft Fabric</p><p>Primary PM for KPIs and success metrics across Fabric workloads, and owner of the roadmap for a terabyte-scale telemetry platform.</p></div>
+    </div>
+    <div class="creds">
+      <p><b>Education</b> <span class="muted">B.E., Electronics and Communications, MK University, India</span></p>
+      <p><b>Certifications</b> <span class="muted">Microsoft Certified: Azure Data Engineer Associate. Also OCA, MCITP and MCTS for SQL Server, and Sun Certified Java Programmer.</span></p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="row">
+      <div>
+        <h2>Let's talk about your data platform.</h2>
+        <div class="contact-line"><span>shanmugam.narayanan@gmail.com</span><button class="copy" type="button" id="copyEmail">Copy email</button></div>
+        <p style="margin-top:14px;display:flex;gap:22px;flex-wrap:wrap"><a href="https://www.linkedin.com/in/shanmugam3">LinkedIn: linkedin.com/in/shanmugam3</a><a href="https://drive.google.com/file/d/1XPS0iFSfbFuxf7-Il95IkeQ7tAJ_vo-v/view">Resume (Google Drive)</a><a href="mailto:shanmugam.narayanan@gmail.com">Write an email</a></p>
+      </div>
+      <p style="max-width:38ch;color:#B9C6C3">Open to product roles in data platforms, reliability, analytics and AI-enabled products. Based in Atlanta.</p>
+    </div>
+    <p class="fine">Diagrams and dashboard visuals are illustrative and use sample data. No internal Microsoft data is shown.</p>
+  </div>
+</footer>
+
+<script>
+const NS="http://www.w3.org/2000/svg";
+const reduce=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+function el(tag,attrs,parent,text){const e=document.createElementNS(NS,tag);for(const k in attrs)e.setAttribute(k,attrs[k]);if(text!=null)e.textContent=text;if(parent)parent.appendChild(e);return e;}
+const C={ink:"#18262E",muted:"#56656C",line:"#C9D1CF",soft:"#E1E6E4",sig:"#0E7A74",sigSoft:"#D5E9E6",amber:"#A86F14",fail:"#B5433A"};
+
+/* ---------- HERO FLOW ---------- */
+(function(){
+  const notes=[
+    ["Define","Agree on scenarios, success criteria and owners before a single chart is built. Most metric arguments are definition arguments."],
+    ["Validate","Catch missing events, duplicates and late data. When the data is wrong, I route it back to the team that owns it rather than patching the report."],
+    ["Measure","One shared calculation that every team and dashboard uses, so reviews argue about the product, not about the numbers."],
+    ["Decide","Turn the metric into a ranked backlog with owners. A metric nobody acts on is just a chart."]
+  ];
+  const gates=[...document.querySelectorAll(".gate")];
+  const note=document.getElementById("stageNote");
+  function pick(i){gates.forEach(g=>g.classList.toggle("on",+g.dataset.i===i));note.innerHTML="<b>"+notes[i][0]+"</b><span>"+notes[i][1]+"</span>";}
+  gates.forEach(g=>{g.addEventListener("click",()=>pick(+g.dataset.i));g.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();pick(+g.dataset.i);}});});
+  pick(0);
+
+  const layer=document.getElementById("particles");
+  const parts=[];
+  function spawn(){
+    const bad=Math.random()<0.28;
+    const y=50+Math.random()*150;
+    const c=el("circle",{r:bad?4.5:4,cx:20,cy:y,fill:bad?C.fail:C.amber,opacity:.9},layer);
+    parts.push({c,x:20+Math.random()*30,y,bad,stage:0,vy:0});
+  }
+  let paused=false,last=0,acc=0;
+  function step(t){
+    const dt=Math.min(40,t-last||16);last=t;
+    if(!paused){
+      acc+=dt;if(acc>170){acc=0;spawn();}
+      for(let i=parts.length-1;i>=0;i--){
+        const p=parts[i];
+        p.x+=dt*0.12;
+        // converge to the line through gates
+        const targetY = p.x>200 ? 125 : p.y;
+        if(p.bad && p.x>440){p.vy+=0.012*dt;p.y+=p.vy;p.x-=dt*0.09;p.c.setAttribute("opacity",Math.max(0,.9-(p.y-140)/90));}
+        else{p.y+= (targetY-p.y)*0.06;}
+        if(p.x>210 && !p.bad){p.c.setAttribute("fill",p.x>580?C.sig:C.amber);}
+        p.c.setAttribute("cx",p.x);p.c.setAttribute("cy",p.y);
+        if(p.x>920||p.y>240){p.c.remove();parts.splice(i,1);}
+      }
+    }
+    requestAnimationFrame(step);
+  }
+  const btn=document.getElementById("pauseBtn");
+  if(reduce){
+    for(let i=0;i<22;i++){const x=30+Math.random()*160,y=50+Math.random()*150,bad=i%4===0;el("circle",{r:4,cx:x,cy:y,fill:bad?C.fail:C.amber},layer);}
+    for(let x=340;x<770;x+=26){el("circle",{r:4,cx:x,cy:125,fill:x>560?C.sig:C.amber},layer);}
+    btn.hidden=true;
+  } else {
+    requestAnimationFrame(step);
+    btn.addEventListener("click",()=>{paused=!paused;btn.setAttribute("aria-pressed",paused);btn.textContent=paused?"Resume signals":"Pause signals";});
+  }
+})();
+
+/* ---------- TABS ---------- */
+const tabs=[...document.querySelectorAll(".tab")];
+function openCase(id,focus){
+  tabs.forEach(t=>{const on=t.dataset.case===id;t.setAttribute("aria-selected",on);t.tabIndex=on?0:-1;});
+  document.querySelectorAll(".case").forEach(c=>c.classList.toggle("on",c.id==="case-"+id));
+  if(focus)document.getElementById("t-"+id).focus();
+}
+tabs.forEach((t,i)=>{
+  t.addEventListener("click",()=>{openCase(t.dataset.case);history.replaceState(null,"","#case-"+t.dataset.case);});
+  t.addEventListener("keydown",e=>{let j=null;if(e.key==="ArrowRight")j=(i+1)%tabs.length;if(e.key==="ArrowLeft")j=(i-1+tabs.length)%tabs.length;if(j!=null){e.preventDefault();openCase(tabs[j].dataset.case,true);}});
+});
+function fromHash(){const h=location.hash.replace("#","");if(h.startsWith("case-")){const id=h.slice(5);if(document.getElementById("t-"+id)){openCase(id);document.getElementById("work").scrollIntoView();}}}
+window.addEventListener("hashchange",fromHash);fromHash();
+
+/* ---------- CASE 1: loop ---------- */
+(function(){
+  const steps=[
+    ["Onboard workloads","Phased onboarding plans, ordered by how critical each scenario is and how ready the team is.","I set the sequence and readiness criteria."],
+    ["Define scenarios","Shared scenario definitions, configuration and reporting semantics across every workload.","I ran metric governance with metric stewards."],
+    ["Emit telemetry","Workload and partner-platform events flow into the pipeline.","I tracked coverage gaps and dependencies."],
+    ["Check data quality","Missing events, incomplete data and discrepancies get triaged before anyone trusts a number.","I coordinated the investigations across teams."],
+    ["Compute WSR","One calculation, one source of truth, also consumed by the Quality Dashboard.","I owned the requirements and roadmap."],
+    ["Investigate","A tenant-level dashboard lets teams self-serve their own failure analysis.","I drove delivery of the production dashboard."],
+    ["Review and prioritize","Recurring reviews feed a visible reliability backlog with clear owners, and loop back to the teams.","I ran the cadence and kept priorities visible."]
+  ];
+  const svg=document.getElementById("loopSvg"),det=document.getElementById("loopDetail");
+  const cx=260,cy=200,R=150;
+  el("circle",{cx,cy,r:R,fill:"none",stroke:C.soft,"stroke-width":2},svg);
+  // arrows along circle
+  for(let i=0;i<steps.length;i++){
+    const a=(i+0.5)/steps.length*Math.PI*2-Math.PI/2;
+    const x=cx+R*Math.cos(a),y=cy+R*Math.sin(a);
+    const rot=a*180/Math.PI+90;
+    el("path",{d:"M-5 -4 L3 0 L-5 4",fill:"none",stroke:"#9AA8AE","stroke-width":2,transform:`translate(${x} ${y}) rotate(${rot})`},svg);
+  }
+  el("text",{x:cx,y:cy-6,"text-anchor":"middle","font-size":16,"font-weight":600,fill:C.ink},svg,"Workload");
+  el("text",{x:cx,y:cy+14,"text-anchor":"middle","font-size":16,"font-weight":600,fill:C.ink},svg,"Success Rate");
+  el("text",{x:cx,y:cy+34,"text-anchor":"middle","font-size":12.5,fill:C.muted},svg,"operating loop");
+  const nodes=[];
+  steps.forEach((s,i)=>{
+    const a=i/steps.length*Math.PI*2-Math.PI/2;
+    const x=cx+R*Math.cos(a),y=cy+R*Math.sin(a);
+    const g=el("g",{class:"node",tabindex:0,role:"button","aria-label":s[0]},svg);
+    el("circle",{cx:x,cy:y,r:22,fill:"#fff",stroke:C.line,"stroke-width":1.5},g);
+    el("text",{x,y:y+5,"text-anchor":"middle","font-size":14,"font-weight":600,fill:C.sig},g,i+1);
+    const lx=x+(Math.cos(a)>0.2?30:Math.cos(a)<-0.2?-30:0);
+    const ly=y+(Math.abs(Math.cos(a))<=0.2?(Math.sin(a)<0?-32:42):5);
+    el("text",{x:lx,y:ly,"text-anchor":Math.cos(a)>0.2?"start":Math.cos(a)<-0.2?"end":"middle","font-size":13.5,fill:C.ink},g,s[0]);
+    const go=()=>{nodes.forEach(n=>n.classList.remove("on"));g.classList.add("on");det.innerHTML=`<h5>${i+1}. ${s[0]}</h5><p>${s[1]}</p><p class="role">${s[2]}</p>`;};
+    g.addEventListener("click",go);g.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();go();}});
+    nodes.push(g);if(i===0)go();
+  });
+})();
+
+/* ---------- CASE 1: freshness ---------- */
+(function(){
+  const svg=document.getElementById("freshSvg"),inp=document.getElementById("wait"),out=document.getElementById("waitOut"),txt=document.getElementById("freshText");
+  const L=50,Rr=500,T=20,B=200,max=180;
+  const X=t=>L+(t/max)*(Rr-L),Y=v=>B-(v)*(B-T);
+  el("line",{x1:L,y1:B,x2:Rr,y2:B,stroke:C.line},svg);
+  [0,60,120,180].forEach(t=>el("text",{x:X(t),y:B+18,"text-anchor":"middle","font-size":12,fill:C.muted},svg,t+"m"));
+  [0,.5,1].forEach(v=>{el("line",{x1:L,y1:Y(v),x2:Rr,y2:Y(v),stroke:C.soft,"stroke-dasharray":"3 4"},svg);el("text",{x:L-8,y:Y(v)+4,"text-anchor":"end","font-size":12,fill:C.muted},svg,Math.round(v*100)+"%");});
+  const comp=t=>1-0.6*Math.exp(-t/28);
+  const fresh=t=>1-t/max;
+  let d1="",d2="";for(let t=0;t<=max;t+=3){d1+=(t?"L":"M")+X(t)+" "+Y(comp(t));d2+=(t?"L":"M")+X(t)+" "+Y(fresh(t));}
+  el("path",{d:d1,fill:"none",stroke:C.sig,"stroke-width":2.5},svg);
+  el("path",{d:d2,fill:"none",stroke:C.amber,"stroke-width":2.5},svg);
+  el("text",{x:Rr-4,y:Y(comp(max))-8,"text-anchor":"end","font-size":13,fill:C.sig,"font-weight":600},svg,"Completeness");
+  el("text",{x:X(140),y:Y(fresh(140))-10,"text-anchor":"start","font-size":13,fill:C.amber,"font-weight":600},svg,"Freshness");
+  const vline=el("line",{y1:T,y2:B,stroke:C.ink,"stroke-width":1.5},svg);
+  const p1=el("circle",{r:5,fill:C.sig},svg),p2=el("circle",{r:5,fill:C.amber},svg);
+  function upd(){const t=+inp.value;out.textContent=t+" min";vline.setAttribute("x1",X(t));vline.setAttribute("x2",X(t));p1.setAttribute("cx",X(t));p1.setAttribute("cy",Y(comp(t)));p2.setAttribute("cx",X(t));p2.setAttribute("cy",Y(fresh(t)));
+    const c=Math.round(comp(t)*100);
+    txt.innerHTML=t<25?`<b>Very fresh, but only about ${c}% of events have arrived.</b> Late events will shift the number after people have already reacted to it.`:t>100?`<b>About ${c}% complete, but ${t} minutes old.</b> Accurate, yet too slow for live incident response.`:`<b>A balance: about ${c}% complete at ${t} minutes.</b> Late events can be reconciled in a later refresh, and that rule is documented.`;}
+  inp.addEventListener("input",upd);upd();
+})();
+
+/* ---------- CASE 2: prioritization ---------- */
+(function(){
+  const dims=[["impact","Critical-metric impact",4],["org","Organizational alignment",3],["prod","Product priority",3],["cost","Low cost and effort",2],["lev","Cross-workload leverage",3],["dep","Dependency readiness",2]];
+  const reqs=[
+    {n:"Onboard a new workload",s:{impact:3,org:4,prod:5,cost:3,lev:1,dep:4}},
+    {n:"Close a reliability data gap",s:{impact:5,org:4,prod:3,cost:3,lev:4,dep:3}},
+    {n:"Reporting enhancement",s:{impact:2,org:2,prod:3,cost:5,lev:2,dep:5}},
+    {n:"Compliance-driven change",s:{impact:3,org:5,prod:2,cost:2,lev:3,dep:4}},
+    {n:"Platform modernization",s:{impact:4,org:3,prod:2,cost:1,lev:5,dep:1}}
+  ];
+  const w={};dims.forEach(d=>w[d[0]]=d[2]);
+  const wbox=document.getElementById("weights"),rank=document.getElementById("rank");
+  dims.forEach(d=>{const div=document.createElement("div");div.className="rangebox";div.innerHTML=`<label for="w-${d[0]}">${d[1]} <output id="o-${d[0]}">${d[2]}</output></label><input type="range" id="w-${d[0]}" min="0" max="5" value="${d[2]}">`;wbox.appendChild(div);
+    div.querySelector("input").addEventListener("input",e=>{w[d[0]]=+e.target.value;div.querySelector("output").textContent=e.target.value;draw();});});
+  rank.style.height=(reqs.length*56)+"px";
+  const rows=reqs.map(r=>{const d=document.createElement("div");d.className="row";d.innerHTML=`<div class="lbl"><b>${r.n}</b><span class="sc"></span></div><div class="bar"><i></i></div>`;rank.appendChild(d);return d;});
+  function draw(){
+    const tot=Object.values(w).reduce((a,b)=>a+b,0)||1;
+    const scored=reqs.map((r,i)=>({i,v:dims.reduce((a,d)=>a+w[d[0]]*r.s[d[0]],0)/(tot*5)}));
+    scored.sort((a,b)=>b.v-a.v);
+    // reorder DOM so :first-child styling follows rank
+    scored.forEach((s,pos)=>{const row=rows[s.i];row.style.top=(pos*56)+"px";row.querySelector("i").style.width=Math.round(s.v*100)+"%";row.querySelector(".sc").textContent=(pos===0?"Top priority, ":"")+"score "+Math.round(s.v*100);row.querySelector("i").style.background=pos===0?C.ink:C.sig;});
+  }
+  draw();
+})();
+
+/* ---------- CASE 3: quality mockup ---------- */
+(function(){
+  const wls=["Workload A","Workload B","Workload C","Workload D","Workload E"];
+  const data={
+    "All":{sev:2,tot:9,cii:14,esc:6,rel:99.2,perf:97.1,avail:99.95},
+    "Workload A":{sev:0,tot:1,cii:2,esc:1,rel:99.7,perf:98.4,avail:99.98},
+    "Workload B":{sev:1,tot:3,cii:5,esc:2,rel:98.6,perf:95.2,avail:99.90},
+    "Workload C":{sev:0,tot:1,cii:1,esc:0,rel:99.6,perf:98.9,avail:99.99},
+    "Workload D":{sev:1,tot:2,cii:4,esc:2,rel:98.9,perf:96.0,avail:99.93},
+    "Workload E":{sev:0,tot:2,cii:2,esc:1,rel:99.4,perf:97.8,avail:99.97}
+  };
+  const tgt={rel:99.0,perf:97.0,avail:99.95};
+  const bar=document.getElementById("wlBar"),tiles=document.getElementById("tiles"),rowsEl=document.getElementById("wlRows"),fl=document.getElementById("focusList"),ft=document.getElementById("focusTitle");
+  let cur="All";const segs=[];
+  ["All",...wls].forEach(n=>{const b=document.createElement("button");b.className="seg";b.type="button";b.textContent=n;b.addEventListener("click",()=>set(n));bar.appendChild(b);segs.push(b);});
+  const rowBtns=wls.map(n=>{const b=document.createElement("button");b.type="button";b.className="wl-row";const v=data[n].rel;const pct=x=>((x-97.5)/(100-97.5))*100;
+    b.innerHTML=`<span>${n}</span><span class="wl-track"><i style="width:${pct(v)}%;background:${v>=tgt.rel?C.sig:C.fail}"></i><span class="tgt" style="left:${pct(tgt.rel)}%"></span></span><span>${v.toFixed(1)}%</span>`;
+    b.addEventListener("click",()=>set(n));rowsEl.appendChild(b);return b;});
+  function tile(label,val,ok,sub){return `<div class="tile"><div class="tl">${label}</div><div class="tv">${val}</div><div class="ts"><span class="dot" style="background:${ok?C.sig:C.fail}"></span>${sub}</div></div>`;}
+  function set(n){
+    cur=n;const d=data[n];
+    segs.forEach(s=>s.setAttribute("aria-pressed",s.textContent===n));
+    rowBtns.forEach((b,i)=>b.classList.toggle("on",wls[i]===n));
+    tiles.innerHTML=tile("Severe outages",d.sev,d.sev===0,d.sev===0?"None":"Review")+tile("Total outages",d.tot,d.tot<=2,"vs last period")+tile("Customer-impacting incidents",d.cii,d.cii<=3,"trend")+tile("Critical escalations",d.esc,d.esc<=1,"open")+tile("Reliability",d.rel.toFixed(1)+"%",d.rel>=tgt.rel,"target "+tgt.rel+"%")+tile("Availability",d.avail.toFixed(2)+"%",d.avail>=tgt.avail,"target "+tgt.avail+"%");
+    const items=[];
+    if(n==="All"){
+      wls.forEach(w=>{const x=data[w];if(x.rel<tgt.rel)items.push([C.fail,`${w}: reliability below target. Open its scenario breakdown.`]);if(x.perf<tgt.perf)items.push([C.amber,`${w}: performance attainment under target.`]);});
+      ft.textContent="Where to focus across all workloads";
+    } else {
+      if(d.rel<tgt.rel)items.push([C.fail,"Reliability below target. Drill into failing scenarios."]);
+      if(d.perf<tgt.perf)items.push([C.amber,"Performance attainment under target."]);
+      if(d.sev>0)items.push([C.fail,"Severe outage this period. Link to its post-incident review."]);
+      if(d.esc>1)items.push([C.amber,"Multiple critical escalations. Check for a shared root cause."]);
+      if(!items.length)items.push([C.sig,"On target across signals. No action needed this period."]);
+      ft.textContent="Where to focus: "+n;
+    }
+    fl.innerHTML=items.map(i=>`<li><span class="dot" style="background:${i[0]};margin-top:7px;flex:none"></span><span>${i[1]}</span></li>`).join("");
+  }
+  set("All");
+})();
+
+/* ---------- CASE 4: BoF loop + board ---------- */
+(function(){
+  const steps=[["Exercise","real scenarios","Run our own production telemetry workloads on the platform, at real enterprise scale."],["Capture","friction","Log every blocker in one shared tracker instead of scattered email threads."],["Define","the requirement","Turn each blocker into a precise ask: what's blocked, why it matters, what done looks like."],["Engage","the owning team","Bring the ask to the platform or workload team that owns it, with an accountable owner."],["Validate","progress","Retest. Separate native fixes from temporary workarounds."],["Communicate","remaining risk","Executive updates that show proven progress apart from open dependencies."]];
+  const svg=document.getElementById("bofSvg"),note=document.getElementById("bofNote");
+  const W=140,gap=24,x0=20;const boxes=[];
+  steps.forEach((s,i)=>{const x=x0+i*(W+gap);
+    const g=el("g",{class:"node",tabindex:0,role:"button","aria-label":s[0]+" "+s[1]},svg);
+    el("rect",{x,y:30,width:W,height:70,rx:10,fill:"#fff",stroke:C.line,"stroke-width":1.5},g);
+    el("text",{x:x+W/2,y:61,"text-anchor":"middle","font-size":15.5,"font-weight":600,fill:C.ink},g,s[0]);
+    el("text",{x:x+W/2,y:81,"text-anchor":"middle","font-size":13,fill:C.muted},g,s[1]);
+    if(i<steps.length-1)el("path",{d:`M${x+W+3} 65 h${gap-8} m-5 -5 l5 5 l-5 5`,stroke:"#9AA8AE","stroke-width":2,fill:"none"},svg);
+    const go=()=>sel(i);g.addEventListener("click",()=>{stop();go();});g.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();stop();go();}});
+    boxes.push(g);});
+  const last=x0+5*(W+gap)+W/2,first=x0+W/2;
+  el("path",{d:`M${last} 100 V140 H${first} V106`,stroke:C.sig,"stroke-width":2,fill:"none","stroke-dasharray":"5 5"},svg);
+  el("path",{d:`M${first-5} 111 l5 -6 l5 6`,stroke:C.sig,"stroke-width":2,fill:"none"},svg);
+  el("text",{x:(first+last)/2,y:158,"text-anchor":"middle","font-size":13,fill:C.sig},svg,"Repeat with the next scenario");
+  function sel(i){boxes.forEach((b,j)=>b.classList.toggle("on",j===i));note.innerHTML=`<b>${steps[i][0]} ${steps[i][1]}.</b> ${steps[i][2]}`;}
+  sel(0);
+  let timer=null;const pb=document.getElementById("loopPlay");
+  function stop(){if(timer){clearInterval(timer);timer=null;pb.textContent="Walk through the loop";}}
+  pb.addEventListener("click",()=>{if(timer){stop();return;}let i=0;sel(0);pb.textContent="Stop";timer=setInterval(()=>{i++;if(i>=steps.length){stop();return;}sel(i);},1900);});
+
+  const cols=[
+    ["Moved forward",C.sig,[["Continuous ingestion path","Ingestion","Could simplify an existing copy-based architecture. Our testing and escalation helped advance it."],["Flexible Eventhouse capacity","Scale","Gained access to more flexible capacity behavior for internal validation."]]],
+    ["Partly proven",C.amber,[["Alternative migration extraction","Migration","Implemented. Initial tests showed progress; larger-scale testing exposed a remaining blocker."]]],
+    ["Requirements defined",C.muted,[["Operational alerting","Monitoring","Clear requirements handed to the owning team."],["Identity support","Identity","Scoped ask with an accountable owner."],["Parameterized scheduling","Scheduling","Requirement defined from a real pipeline need."]]]
+  ];
+  const board=document.getElementById("board");
+  cols.forEach(c=>{const col=document.createElement("div");col.className="col";col.innerHTML=`<h5><span class="dot" style="background:${c[1]}"></span>${c[0]}</h5>`;
+    c[2].forEach(it=>{const b=document.createElement("button");b.type="button";b.className="card";b.setAttribute("aria-expanded","false");b.innerHTML=`<b>${it[0]}</b><span>${it[1]}</span><div class="more">${it[2]}</div>`;
+      b.addEventListener("click",()=>{const on=!b.classList.contains("on");b.classList.toggle("on",on);b.setAttribute("aria-expanded",on);});col.appendChild(b);});
+    board.appendChild(col);});
+})();
+
+/* ---------- CASE 5: residency ---------- */
+(function(){
+  const svg=document.getElementById("resSvg"),note=document.getElementById("resNote");
+  const bB=document.getElementById("resBefore"),bA=document.getElementById("resAfter");
+  function box(x,y,w,h,t1,t2,fill,stroke,tc){const g=el("g",{},svg);el("rect",{x,y,width:w,height:h,rx:10,fill:fill||"#fff",stroke:stroke||C.line,"stroke-width":1.5},g);el("text",{x:x+w/2,y:y+(t2?h/2-2:h/2+5),"text-anchor":"middle","font-size":14.5,"font-weight":600,fill:tc||C.ink},g,t1);if(t2)el("text",{x:x+w/2,y:y+h/2+16,"text-anchor":"middle","font-size":12.5,fill:tc?"#cfe":C.muted},g,t2);return g;}
+  function arrow(d,col,dash){el("path",{d,stroke:col||"#9AA8AE","stroke-width":2,fill:"none","stroke-dasharray":dash||"none"},svg);}
+  function draw(after){
+    svg.innerHTML="";
+    if(!after){
+      box(20,30,170,52,"EU telemetry");box(20,104,170,52,"US telemetry");box(20,178,170,52,"Other regions");
+      [56,130,204].forEach(y=>arrow(`M190 ${y} C300 ${y} 300 130 400 130`));
+      box(400,96,220,68,"One global pipeline","raw data combined");
+      arrow("M620 130 H720");
+      box(720,96,240,68,"Usage metrics","users, sessions, trends");
+      note.innerHTML="<b>Before:</b> every region's raw telemetry was combined in one place, so metric logic assumed it could see everything at once.";
+    } else {
+      el("rect",{x:10,y:14,width:400,height:96,rx:14,fill:"#D5E9E6",stroke:C.sig,"stroke-dasharray":"6 5"},svg);
+      el("text",{x:24,y:34,"font-size":13,fill:C.sig,"font-weight":600},svg,"EU data boundary");
+      box(26,46,150,52,"EU telemetry");arrow("M176 72 H226");box(226,46,170,52,"EU processing","stays in region");
+      box(26,160,150,52,"US and other");arrow("M176 186 H226");box(226,160,170,52,"Global processing");
+      arrow("M396 72 C470 72 470 128 540 128",C.sig);arrow("M396 186 C470 186 470 136 540 136");
+      box(540,96,200,68,"Combine aggregates","only what's permitted");
+      arrow("M740 130 H790");
+      box(790,96,190,68,"Usage metrics","revised logic");
+      el("circle",{cx:465,cy:226,r:11,fill:"#F3DAD7"},svg);el("text",{x:465,y:231,"text-anchor":"middle","font-size":13,"font-weight":700,fill:C.fail},svg,"!");
+      el("text",{x:484,y:224,"font-size":13.5,fill:C.ink,"font-weight":600},svg,"Watch-outs I aligned teams on:");
+      el("text",{x:484,y:243,"font-size":13,fill:C.muted},svg,"anonymous users, identifier mapping, history deletion");
+      note.innerHTML="<b>After:</b> EU data is processed in region. Anonymous-user logic, identifier consistency and historical comparability all had to be redecided and explained to metric consumers.";
+    }
+    bB.setAttribute("aria-pressed",!after);bA.setAttribute("aria-pressed",after);
+  }
+  bB.addEventListener("click",()=>draw(false));bA.addEventListener("click",()=>draw(true));draw(false);
+})();
+
+/* ---------- AI flow ---------- */
+(function(){
+  const svg=document.getElementById("aiSvg"),pass=document.getElementById("aiPass"),fail=document.getElementById("aiFail");
+  const steps=[["AI proposes","candidate fix",C.amber],["Engineer","reviews",C.ink],["Test","",C.ink],["Validate","against data",C.ink],["Ship","",C.sig]];
+  function draw(ok){
+    svg.innerHTML="";const W=150,gap=48,x0=20,y=50;
+    steps.forEach((s,i)=>{const x=x0+i*(W+gap);const last=i===4;const dim=!ok&&i>2;
+      el("rect",{x,y,width:W,height:64,rx:10,fill:last&&ok?C.sig:i===0?"#F3E6CF":"#fff",stroke:i===2&&!ok?C.fail:last&&ok?C.sig:C.line,"stroke-width":i===2&&!ok?2.5:1.5,opacity:dim?.35:1},svg);
+      el("text",{x:x+W/2,y:y+(s[1]?28:37),"text-anchor":"middle","font-size":15,"font-weight":600,fill:last&&ok?"#fff":C.ink,opacity:dim?.35:1},svg,s[0]);
+      if(s[1])el("text",{x:x+W/2,y:y+47,"text-anchor":"middle","font-size":12.5,fill:last&&ok?"#E6F2F0":C.muted,opacity:dim?.35:1},svg,s[1]);
+      if(i<4)el("path",{d:`M${x+W+4} ${y+32} h${gap-12} m-6 -6 l6 6 l-6 6`,stroke:"#9AA8AE","stroke-width":2,fill:"none",opacity:(!ok&&i>=2)?.35:1},svg);
+    });
+    const tx=x0+2*(W+gap)+W/2,ax=x0+W/2;
+    if(!ok){el("path",{d:`M${tx} ${y+64} V${y+110} H${ax} V${y+70}`,stroke:C.fail,"stroke-width":2,fill:"none","stroke-dasharray":"5 5"},svg);el("path",{d:`M${ax-6} ${y+76} l6 -6 l6 6`,stroke:C.fail,"stroke-width":2,fill:"none"},svg);el("text",{x:(tx+ax)/2,y:y+130,"text-anchor":"middle","font-size":13.5,fill:C.fail,"font-weight":600},svg,"Fails a test: back to a new candidate. Nothing ships.");}
+    else el("text",{x:500,y:y+110,"text-anchor":"middle","font-size":13.5,fill:C.sig,"font-weight":600},svg,"Human review and testing are delivery gates, not optional steps.");
+    pass.setAttribute("aria-pressed",ok);fail.setAttribute("aria-pressed",!ok);
+  }
+  pass.addEventListener("click",()=>draw(true));fail.addEventListener("click",()=>draw(false));draw(true);
+})();
+
+/* ---------- copy email ---------- */
+document.getElementById("copyEmail").addEventListener("click",async e=>{const b=e.currentTarget;try{await navigator.clipboard.writeText("shanmugam.narayanan@gmail.com");b.textContent="Email copied";}catch(_){b.textContent="Select the address to copy";}setTimeout(()=>b.textContent="Copy email",2200);});
+</script>
+</body>
+</html>
