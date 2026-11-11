@@ -174,6 +174,23 @@ input[type=range]{width:100%;accent-color:var(--signal)}
 
 .lane-scroll{overflow-x:auto}
 #laneSvg{display:block;width:100%;min-width:760px}
+/* testimonials */
+.tfilter{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:18px}
+.featured{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:18px}
+.featured .tq:first-child{grid-column:1 / -1;padding:30px 34px}
+.tq{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:22px 24px;margin:0;display:flex;flex-direction:column;justify-content:space-between}
+.tq blockquote{margin:0;font-family:var(--serif);font-size:18px;line-height:1.5;color:var(--ink)}
+.featured .tq:first-child blockquote{font-size:26px;line-height:1.38;max-width:46ch}
+.tq figcaption{margin-top:16px;font-size:14.5px;color:var(--muted)}
+.tq figcaption b{color:var(--ink);font-weight:600}
+.tq figcaption .yr{font-size:11.5px;color:#8A979C;margin-left:6px}
+.tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:start}
+@media (max-width:980px){.tgrid{grid-template-columns:1fr 1fr}}
+@media (max-width:620px){.tgrid{grid-template-columns:1fr}}
+.tgrid .tq blockquote{font-size:16.5px}
+.tq[hidden]{display:none}
+.tsrc{margin-top:18px;font-size:12px;color:#8A979C;text-align:center}
+@media (max-width:820px){.featured{grid-template-columns:1fr}.featured .tq:first-child{padding:22px 24px}.featured .tq:first-child blockquote{font-size:20px}}
 /* other work, principles */
 .list-rows{border-top:1px solid var(--line)}
 .lr{display:grid;grid-template-columns:280px 1fr;gap:30px;padding:18px 0;border-bottom:1px solid var(--line)}
@@ -241,6 +258,7 @@ footer .fine{margin-top:40px;font-size:13px;color:#8EA0A7}
     </a>
     <nav class="links" aria-label="Sections">
       <a href="#work">Work</a>
+      <a href="#praise" class="hide-sm">Praise</a>
       <a href="#ai" class="hide-sm">AI</a>
       <a href="#approach" class="hide-sm">Approach</a>
       <a href="#about">About</a>
@@ -500,6 +518,27 @@ footer .fine{margin-top:40px;font-size:13px;color:#8EA0A7}
         <p class="small muted" style="margin-top:6px">My role was requirements, metric correctness and consumer readiness, not legal certification of compliance.</p>
       </div>
     </article>
+  </div>
+</section>
+
+<!-- PRAISE -->
+<section class="block" id="praise">
+  <div class="wrap">
+    <div class="sec-intro">
+      <h2>What colleagues say</h2>
+      <p>Excerpts from peer feedback by 64 Microsoft colleagues, 2021 to 2026. Quoted as written; trims are marked with … and edits with [brackets].</p>
+    </div>
+    <div class="tfilter" role="group" aria-label="Filter quotes by theme">
+      <button class="seg" type="button" data-t="all" aria-pressed="true">All</button>
+      <button class="seg" type="button" data-t="own" aria-pressed="false">Product ownership</button>
+      <button class="seg" type="button" data-t="lead" aria-pressed="false">Cross-team leadership</button>
+      <button class="seg" type="button" data-t="rigor" aria-pressed="false">Technical rigor</button>
+      <button class="seg" type="button" data-t="mentor" aria-pressed="false">Mentoring</button>
+    </div>
+    <div class="featured" id="tFeat"></div>
+    <div class="tgrid" id="tGrid"></div>
+    <div style="text-align:center;margin-top:22px"><button class="btn ghost" type="button" id="tMore" aria-expanded="false">Show more feedback</button></div>
+    <p class="tsrc">Source: peer feedback downloaded from Microsoft’s Perspectives feedback tool.</p>
   </div>
 </section>
 
@@ -930,6 +969,31 @@ window.addEventListener("hashchange",fromHash);fromHash();
   }
   bFix.addEventListener("click",()=>draw("fix"));bAg.addEventListener("click",()=>draw("agent"));
   draw("fix");
+})();
+
+/* ---------- testimonials ---------- */
+(function(){
+  const Q=[{"n": "Shemesh Hamaoui", "y": 2022, "t": "lead", "q": "[As our Telemetry / Data Curation PM,] his impact was almost immediate. This is a very complex area to manage, which requires both deep technical knowledge and excellent communication and coordination skills. His ability to drive for results in cross disciplines efforts is great!"}, {"n": "Doron Avitan", "y": 2026, "t": "own", "q": "You run the telemetry team as a true product owner — structured, document-driven, requirements-first. … You translate fuzzy reliability asks (availability, MTBF, latency, coverage) into precise telemetry definitions teams can actually build against. That PM rigor is what makes telemetry a system rather than a pile of one-offs."}, {"n": "Kay Unkroth", "y": 2025, "t": "own", "q": "PBI telemetry didn’t see much progress for multiple years, but now, thanks in many parts to you directly shaping how scenario owners reason about reliability, we are beginning to see real progress."}, {"n": "Wilson Lee", "y": 2026, "t": "lead", "q": "You turn ambiguous, cross-team metrics asks into structured, decision-ready plans. … You’re also unusually honest about scope and timing — when something is uncertain or capacity has to shift, you say so directly rather than letting dates drift quietly."}, {"n": "Joy Koh", "y": 2026, "t": "rigor", "q": "The thing I most value is your combination of technical rigor and execution discipline. You protect correctness without slowing momentum, and that balance consistently leads to decisions and metrics we can trust."}, {"n": "Eric Kopp", "y": 2024, "t": "lead", "q": "In my interactions with Shan he has a very strong business understanding of the stakeholders’ desires in addition to a strong technical understanding of the environment where their requests are delivered."}, {"n": "Tamas Polner", "y": 2023, "t": "lead", "q": "You are doing a great job working with your business partners, establishing partnerships and investing time and energy to understand their business needs, and translating them to development requirements with your engineering team."}, {"n": "Kay Unkroth", "y": 2026, "t": "rigor", "q": "You own the telemetry layer that underpins reliability reporting for the entire Power BI stack, and you do it with care for correctness. That reliability-behind-the-reliability is something I genuinely appreciate."}, {"n": "Chandra Chilukuri", "y": 2026, "t": "rigor", "q": "Shanmugam was a thoughtful, systems-minded partner: he balanced [our] reporting needs against the health of shared telemetry infrastructure, steered us to the right technical approach for high event volume, and stayed engaged from onboarding through schema design and rollout."}, {"n": "Andreas Weber", "y": 2026, "t": "lead", "q": "You’re calm when things get messy. A lot of the stuff we’ve worked on (CU dips, fraud, missing data, exec asks) could easily turn into noise or panic, and you usually just focus on figuring out what’s actually going on and move things forward from there."}, {"n": "Martha Nogueira Domingues", "y": 2026, "t": "own", "q": "You don’t just answer questions; you drive execution, create follow-ups, and bridge gaps between telemetry, reliability, and reporting."}, {"n": "Sandeep Gandam", "y": 2026, "t": "own", "q": "You’re especially good at staying steady through ambiguity, driving issues to closure, and keeping momentum when priorities shift. … When you’re involved, there’s confidence that things won’t stall and that the right next steps will happen."}, {"n": "Oleg Khlus", "y": 2024, "t": "lead", "q": "He excels at translating technical aspects into business language, ensuring effective cross-team communication across different stakeholders. Prioritization is also one of Shan’s strong skills."}, {"n": "Venkat Anantharaman", "y": 2023, "t": "own", "q": "You were organized, had a clear process defined and shepherded the entire project effectively to closure. You were clear in your communications and were precise in your asks from my team. You were key in defining data contract, KPIs to be shared etc."}, {"n": "Debasis Maity", "y": 2025, "t": "own", "q": "Your structured approach—bringing all stakeholders together, walking through each field and requirement in detail, and capturing everything and getting sign off—was instrumental in aligning everyone early on."}, {"n": "Meir Shimon", "y": 2023, "t": "lead", "q": "At the beginning of our journey around this process there was a lot of confusion … But from the moment our weekly conversations with you began, things began to move because you took personal responsibility and made sure that everything progressed."}, {"n": "Anuj Vikal", "y": 2026, "t": "rigor", "q": "His ability to bridge product vision with execution makes him highly effective in enabling the team to deliver meaningful outcomes."}, {"n": "Deepa Rajagopal", "y": 2024, "t": "mentor", "q": "Six months ago, when I started on this team, Shan became an invaluable onboarding mentor. He guided me through processes, shared email templates, helped with reviewing Kusto queries, and offered support in many other ways."}, {"n": "Naga Balamurugan", "y": 2025, "t": "mentor", "q": "I have learned many valuable PM skills from you, such as conducting effective meetings, driving clear outcomes, problem-solving, and decision-making."}, {"n": "Émile Robillard", "y": 2025, "t": "mentor", "q": "The thing I most value about working with you is your willingness to mentor and always being available for questions. Your clear explanations make learning and collaboration much easier."}];
+  const MORE=[{"n": "Dan Manrique", "t": "own", "q": "I am a big fan of your enthusiasm and drive for execution."}, {"n": "David Olix", "t": "lead", "q": "I very much appreciate so far your ability to dive in and gain an understanding of what the project is about and the customer pain points it is intended to address and to help communicate that value-prop to customers and stakeholders."}, {"n": "Alain Lissoir", "t": "own", "q": "You’ve been adapting, pretty open and persisted in delivering what’s expected from you and your team while raising issues and concerns."}, {"n": "Nate Findley", "t": "lead", "q": "He is an engaged collaborator who I trust for both excellent work, but also perspective."}, {"n": "Giri Nair", "t": "lead", "q": "Shan, you continue to excel in applying your skills to bring the team together to arrive at useful solutions in complex scenarios with different tradeoffs."}, {"n": "Justin Rachels", "t": "rigor", "q": "I really appreciate all of your efforts navigating the convoluted historical debt generated over the years in our telemetry data semantics and helping provide development oversight and direction while bridging Engineering and [Management] concerns."}, {"n": "Bhavesh Goradia", "t": "rigor", "q": "Shan - You continue to be the go-to expert for Fabric’s data telemetry and infrastructure."}, {"n": "Yaron Milman", "t": "rigor", "q": "Shanmugam is our Go-To person for all Fabric data related issues …"}, {"n": "Marc Ho", "t": "rigor", "q": "Shan is a highly technical PM that really understands the product and the team."}, {"n": "Oussama Megouas", "t": "rigor", "q": "I particularly admire your ability to quickly break down complex problems into smaller, manageable components while maintaining a clear, holistic view of the overall system."}, {"n": "Avi Sander", "t": "rigor", "q": "You are very technical and can dive into the details, extract the key points and direct to a common solution - you definitely know your domain."}, {"n": "Tamer Farag", "t": "lead", "q": "Scheduling a regular sync, providing regular updates and being clear about the trade-offs worked very well this year."}, {"n": "Jonathan Phillips", "t": "own", "q": "There was an issue with the results and he took full responsibility and proceeded to make sure the problem was addressed."}, {"n": "Christina Wong", "t": "own", "q": "He cares about customers. This is evident by he always wants to do more and deliver more for them in spite of resource constraints."}, {"n": "Leon Zhang", "t": "own", "q": "You always make sure loose ends are tied, and you circle back to ensure positive feedback instead of making assumptions based on the lack of negative feedback."}, {"n": "Alex Chang", "t": "own", "q": "I think you are great at proactively driving for process-oriented stuff within the team such as office hours and backlog review, it speaks volumes about taking ownership and being proactive"}, {"n": "Mahasubramanian Maharajan", "t": "own", "q": "His proactive involvement in refining requirements and resolving blockers greatly supported the smooth execution of projects …"}, {"n": "Ljubica Vujovic Boskovic", "t": "own", "q": "I really appreciate you’ve facilitated these discussions and helped to generate clarity regarding requirements."}, {"n": "Kimberlee Jelly", "t": "own", "q": "One thing you excel at is your promptness in communication and consistent follow-through."}, {"n": "Anju Hayes", "t": "lead", "q": "Your ability to bring rest of the partner teams to collaborate on a solution every time we hit a blocker is much appreciated."}, {"n": "Parthiv Shah", "t": "lead", "q": "You have been very receptive to listen to needs of client teams and bring it to the data team’s attention."}, {"n": "Ling Luo", "t": "lead", "q": "Your engagement, willingness to consider different perspectives, and openness to feedback are highly appreciated."}, {"n": "Gregory Borodin", "t": "lead", "q": "I really liked the way you organized the … work and visualized the cooperation."}, {"n": "Vinod Kumar Gottepu", "t": "lead", "q": "You are really thoughtful in what you do, you are great at communicating it."}, {"n": "Robert Ruby", "t": "lead", "q": "It’s great to have the added organization around our ongoing meetings …"}, {"n": "DeNisha Malone", "t": "lead", "q": "I like how you can resolve problems quickly, and/or know the right person to connect with for resolution."}, {"n": "Parul Bansal", "t": "lead", "q": "B2B was a complex scenario, and we found your team to be very supportive and trying your best to help us out."}, {"n": "Uma Maheswari Anbazhagan", "t": "rigor", "q": "It was like finding a needle in the haystack. … Thanks for quick turnarounds."}, {"n": "Nikolina Kvesic", "t": "rigor", "q": "You not only solve technical challenges quickly but also explain the approach clearly, which helps me stay confident in the process."}, {"n": "Santosh Kumar Adepu", "t": "rigor", "q": "I find you easily approachable and someone who really knows the Fabric’s telemetry in depth."}, {"n": "Waheed Roos", "t": "rigor", "q": "I always have a high level of confidence when working with you, and I truly enjoy collaborating with you."}, {"n": "Alexey Yanovsky", "t": "lead", "q": "You are easy to collaborate with, and communication is always straightforward and efficient."}, {"n": "Guru Vijayarao", "t": "own", "q": "Committed! Friendly! Solid technical understanding! Get done attitude!"}, {"n": "Devi Prasad Gakkula", "t": "own", "q": "He is proactive, provides out of the box solutions, provides value to the meetings."}, {"n": "Tina Hsu", "t": "own", "q": "How independent you are working with the engineering team and how you are always seeking opportunities to contribute!"}, {"n": "Alex Shin", "t": "lead", "q": "Many tasks were unblocked thanks to your hands-on help during office hours."}, {"n": "David Brailovsky", "t": "lead", "q": "Your promptness in addressing issues and providing timely assistance has had a significant positive impact on our team’s productivity."}, {"n": "Miki Ben-Zeev", "t": "lead", "q": "You acknowledged all my inquires and looped in whoever was essential to resolve the issues I ran into."}, {"n": "Yoshihiro Tanaka", "t": "lead", "q": "I appreciate your consistency in responding to my inquirers, discussions, and follow-ups. That really helped."}, {"n": "Rakesh Raj Dharmi", "t": "lead", "q": "Your ability to connect with people in positive and supportive way is truly valuable and remarkable"}, {"n": "Ravali Pinnaka", "t": "lead", "q": "I enjoyed working with Shan and would absolutely want to work with him in the future."}, {"n": "Sonal Bhargava", "t": "mentor", "q": "Love your growth mindset and the fact you are always looking to make things better."}, {"n": "Sunaina Lalwani", "t": "mentor", "q": "The way you proactively engage in KT sessions, understand blockers, and help remove them ensures smooth progress across multiple stories."}, {"n": "Han Wong", "t": "mentor", "q": "I really appreciate that you spent extra effort to ramp me up on the various workstreams and work prioritization/governance framework."}, {"n": "Shuya Zong", "t": "mentor", "q": "Love Shan’s strategical advice"}];
+  const feat=document.getElementById("tFeat"),grid=document.getElementById("tGrid"),moreBtn=document.getElementById("tMore");
+  const card=(x,extra)=>{const f=document.createElement("figure");f.className="tq";f.dataset.t=x.t;if(extra)f.dataset.more="1";
+    const b=document.createElement("blockquote");b.textContent="“"+x.q+"”";
+    const c=document.createElement("figcaption");const n=document.createElement("b");n.textContent=x.n;c.append(n);
+    f.append(b,c);return f;};
+  Q.forEach((x,i)=>(i<3?feat:grid).appendChild(card(x)));
+  MORE.forEach(x=>grid.appendChild(card(x,true)));
+  let theme="all",open=false;
+  function apply(){
+    grid.querySelectorAll("[data-tmp]").forEach(f=>f.remove());
+    feat.hidden=(theme!=="all");
+    grid.querySelectorAll(".tq").forEach(f=>{f.hidden=!((theme==="all"||f.dataset.t===theme)&&(open||!f.dataset.more));});
+    if(theme!=="all")Q.slice(0,3).reverse().forEach(x=>{if(x.t===theme){const f=card(x);f.dataset.tmp=1;grid.prepend(f);}});
+    moreBtn.textContent=open?"Show fewer":"Show more feedback";moreBtn.setAttribute("aria-expanded",open);
+  }
+  const btns=[...document.querySelectorAll(".tfilter .seg")];
+  btns.forEach(b=>b.addEventListener("click",()=>{theme=b.dataset.t;btns.forEach(o=>o.setAttribute("aria-pressed",o===b));apply();}));
+  moreBtn.addEventListener("click",()=>{open=!open;apply();if(!open)document.getElementById("praise").scrollIntoView();});
+  apply();
 })();
 
 /* ---------- copy email ---------- */
